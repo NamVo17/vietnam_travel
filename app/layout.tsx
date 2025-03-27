@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Vietnam Travel - Discover the Beauty of Vietnam",
+  title: "Vietnam Travel ",
   description: "Experience breathtaking landscapes, rich culture, and unforgettable adventures in Vietnam",
 }
 

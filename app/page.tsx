@@ -6,7 +6,7 @@ import DestinationCard from "@/components/destination-card"
 import TourPackage from "@/components/tour-package"
 import TestimonialCard from "@/components/testimonial-card"
 import { query } from "@/database/connection"
-
+import Link from "next/link"
 export default async function HomePage() {
   // Fetch featured destinations
   const destinations = await query(`
@@ -117,9 +117,11 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
-              View All Destinations
-            </Button>
+            <Link href={`/destinations`}>
+              <Button variant="outline" size="lg">
+                View All Destinations
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -147,9 +149,11 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
-              View All Packages
-            </Button>
+            <Link href={`/tours`}>
+              <Button variant="outline" size="lg">
+                View All Packages
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
