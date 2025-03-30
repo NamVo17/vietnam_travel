@@ -10,10 +10,10 @@ export default function AboutPage() {
       <section className="relative h-[50vh]">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=800&width=1600"
+            src="/bg_about.jpg?height=800&width=1200"
             alt="Vietnam landscape"
             fill
-            className="object-cover brightness-75"
+            className="object-fill brightness-75"
             priority
           />
         </div>
@@ -39,7 +39,7 @@ export default function AboutPage() {
                   guides has grown into one of Vietnam's most trusted travel companies.
                 </p>
                 <p>
-                  Our founders, Minh and Linh, were born and raised in Vietnam and have spent years exploring every
+                  Our founders, Nam, were born and raised in Vietnam and have spent years exploring every
                   corner of this diverse country. Their deep knowledge and love for Vietnam's landscapes, traditions,
                   and people form the foundation of our company.
                 </p>
@@ -52,7 +52,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden">
-              <Image src="/placeholder.svg?height=800&width=600" alt="Our team" fill className="object-cover" />
+              <Image src="/about.jpg?height=800&width=600" alt="Our team" fill className="object-fill" />
             </div>
           </div>
         </div>

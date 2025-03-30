@@ -37,7 +37,7 @@ export default function Header() {
 
   // Determine text color based on page and scroll state
   const textColorClass =
-    isHomePage && !isScrolled ? "text-white hover:text-gray-200" : "text-gray-700 hover:text-primary"
+    isHomePage && !isScrolled ? "text-white hover:text-black" : "text-gray-700 hover:text-primary"
 
   // Determine header background based on scroll state
   const headerBgClass = isScrolled || !isHomePage ? "bg-white shadow-sm" : "bg-transparent"

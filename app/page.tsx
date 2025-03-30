@@ -41,7 +41,7 @@ export default async function HomePage() {
             src="bg.jpg?height=1080&width=1920"
             alt="Beautiful Vietnam landscape"
             fill
-            className="object-cover brightness-75"
+            className="object-fill brightness-50"
             priority
           />
         </div>
@@ -168,33 +168,81 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Plane className="h-8 w-8 text-primary" />
+            <div
+              className="bg-white p-6 rounded-xl shadow-sm text-center relative overflow-hidden"
+              style={{
+                backgroundImage: "url('/wcu_bg1.jpg')", // Thêm hình nền
+                backgroundSize: "100% 100%",
+              }}
+            >
+              <div className="bg-black/60 absolute inset-0 rounded-xl"></div> {/* Lớp phủ */}
+              <div className="relative z-10">
+                <div className="bg-white/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Plane className="h-8 w-8 text-black" />
+                </div>
+                <h3 className="font-bold text-xl mb-2 text-white">Customized Itineraries</h3>
+                <p className="text-white">
+                  Tailor-made travel plans to suit your preferences and interests
+                </p>
               </div>
-              <h3 className="font-bold text-xl mb-2">Customized Itineraries</h3>
-              <p className="text-muted-foreground">Tailor-made travel plans to suit your preferences and interests</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Hotel className="h-8 w-8 text-primary" />
+
+            <div
+              className="bg-white p-6 rounded-xl shadow-sm text-center relative overflow-hidden"
+              style={{
+                backgroundImage: "url('/wcu_bg2.jpg')", // Thêm hình nền
+                backgroundSize: "100% 100%",
+              }}
+            >
+              <div className="bg-black/60 absolute inset-0 rounded-xl"></div> {/* Lớp phủ */}
+              <div className="relative z-10">
+                <div className="bg-white/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Hotel className="h-8 w-8 text-black" />
+                </div>
+                <h3 className="font-bold text-xl mb-2 text-white">Quality Accommodations</h3>
+                <p className="text-white">
+                  Carefully selected hotels for comfort and authentic experiences
+                </p>
               </div>
-              <h3 className="font-bold text-xl mb-2">Quality Accommodations</h3>
-              <p className="text-muted-foreground">Carefully selected hotels for comfort and authentic experiences</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Utensils className="h-8 w-8 text-primary" />
+
+            <div
+              className="bg-white p-6 rounded-xl shadow-sm text-center relative overflow-hidden"
+              style={{
+                backgroundImage: "url('/wcu_bg3.jpg')", // Thêm hình nền
+                backgroundSize: "100% 100%",
+              }}
+            >
+              <div className="bg-black/60 absolute inset-0 rounded-xl"></div> {/* Lớp phủ */}
+              <div className="relative z-10">
+                <div className="bg-white/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Utensils className="h-8 w-8 text-black" />
+                </div>
+                <h3 className="font-bold text-xl mb-2 text-white">Culinary Experiences</h3>
+                <p className="text-white">
+                  Authentic food experiences showcasing Vietnam's rich cuisine
+                </p>
               </div>
-              <h3 className="font-bold text-xl mb-2">Culinary Experiences</h3>
-              <p className="text-muted-foreground">Authentic food experiences showcasing Vietnam's rich cuisine</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Camera className="h-8 w-8 text-primary" />
+
+            <div
+              className="bg-white p-6 rounded-xl shadow-sm text-center relative overflow-hidden"
+              style={{
+                backgroundImage: "url('/wcu_bg4.jpg')", // Thêm hình nền
+                backgroundSize: "100% 100%",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
+              <div className="bg-black/60 absolute inset-0 rounded-xl"></div> {/* Lớp phủ */}
+              <div className="relative z-10">
+                <div className="bg-white/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Camera className="h-8 w-8 text-black" />
+                </div>
+                <h3 className="font-bold text-xl mb-2 text-white">Local Insights</h3>
+                <p className="text-white">
+                  Expert local guides who share authentic cultural experiences
+                </p>
               </div>
-              <h3 className="font-bold text-xl mb-2">Local Insights</h3>
-              <p className="text-muted-foreground">Expert local guides who share authentic cultural experiences</p>
             </div>
           </div>
         </div>
