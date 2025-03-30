@@ -1,111 +1,139 @@
 "use client"
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Phone } from "lucide-react"
 import { useState, useEffect } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Button } from "@/components/ui/button"
+import { Menu, X } from "lucide-react"
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
 
+  // Check if we're on the homepage
+  const isHomePage = pathname === "/"
+
+  // Handle scroll event to change header style
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setIsScrolled(true)
       } else {
-        setIsScrolled(false)
+        // Only set to transparent on homepage
+        setIsScrolled(isHomePage ? false : true)
       }
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+
+    // Initial check - important to make header visible on page load
+    handleScroll()
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [isHomePage])
+
+  // Determine text color based on page and scroll state
+  const textColorClass =
+    isHomePage && !isScrolled ? "text-white hover:text-gray-200" : "text-gray-700 hover:text-primary"
+
+  // Determine header background based on scroll state
+  const headerBgClass = isScrolled || !isHomePage ? "bg-white shadow-sm" : "bg-transparent"
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
-      }`}
-    >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <Link href="/" className="font-bold text-2xl">
-          <span className={isScrolled ? "text-primary" : "text-white"}>Vietnam</span>
-          <span className={isScrolled ? "text-foreground" : "text-white"}>Travel</span>
-        </Link>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${headerBgClass}`}>
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link href="/" className={`font-bold text-xl ${isHomePage && !isScrolled ? "text-white" : "text-primary"}`}>
+            Vietnam Travel
+          </Link>
 
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link
-            href="/destinations"
-            className={`font-medium ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-black/60"}`}
-          >
-            Destinations
-          </Link>
-          <Link
-            href="/tours"
-            className={`font-medium ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-black/60"}`}
-          >
-            Tours
-          </Link>
-          <Link
-            href="/about"
-            className={`font-medium ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-black/60"}`}
-          >
-            About
-          </Link>
-          <Link
-            href="/blog"
-            className={`font-medium ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-black/60"}`}
-          >
-            Blog
-          </Link>
-          <Link
-            href="/contact"
-            className={`font-medium ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-black/60"}`}
-          >
-            Contact
-          </Link>
-        </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link href="/" className={textColorClass}>
+              Home
+            </Link>
+            <Link href="/destinations" className={textColorClass}>
+              Destinations
+            </Link>
+            <Link href="/tours" className={textColorClass}>
+              Tours
+            </Link>
+            <Link href="/blog" className={textColorClass}>
+              Blog
+            </Link>
+            <Link href="/about" className={textColorClass}>
+              About
+            </Link>
+            <Link href="/contact" className={textColorClass}>
+              Contact
+            </Link>
+          </nav>
 
-        <div className="hidden md:flex items-center space-x-4">
-          <div className={`flex items-center ${isScrolled ? "text-foreground" : "text-white"}`}>
-            <Phone className="h-4 w-4 mr-2" />
-            <span className="font-medium">+84 123 456 789</span>
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <Button>Book a Tour</Button>
           </div>
-          <Button>Book Now</Button>
-        </div>
 
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant={isScrolled ? "outline" : "secondary"} size="icon" className="md:hidden">
-              <Menu className="h-6 w-6" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent>
-            <div className="flex flex-col space-y-4 mt-8">
-              <Link href="/destinations" className="font-medium text-lg py-2">
+          {/* Mobile Menu Button */}
+          <button
+            className={`md:hidden ${isHomePage && !isScrolled ? "text-white" : "text-gray-700"}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t">
+          <div className="container mx-auto px-4 py-3">
+            <nav className="flex flex-col space-y-3">
+              <Link href="/" className="text-gray-700 hover:text-primary py-2" onClick={() => setIsMenuOpen(false)}>
+                Home
+              </Link>
+              <Link
+                href="/destinations"
+                className="text-gray-700 hover:text-primary py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Destinations
               </Link>
-              <Link href="/tours" className="font-medium text-lg py-2">
+              <Link
+                href="/tours"
+                className="text-gray-700 hover:text-primary py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Tours
               </Link>
-              <Link href="/about" className="font-medium text-lg py-2">
-                About
-              </Link>
-              <Link href="/blog" className="font-medium text-lg py-2">
+              <Link href="/blog" className="text-gray-700 hover:text-primary py-2" onClick={() => setIsMenuOpen(false)}>
                 Blog
               </Link>
-              <Link href="/contact" className="font-medium text-lg py-2">
+              <Link
+                href="/about"
+                className="text-gray-700 hover:text-primary py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="/contact"
+                className="text-gray-700 hover:text-primary py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 Contact
               </Link>
-              <div className="pt-4">
-                <Button className="w-full">Book Now</Button>
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div>
+              <Button className="mt-2" onClick={() => setIsMenuOpen(false)}>
+                Book a Tour
+              </Button>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

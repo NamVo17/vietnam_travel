@@ -7,6 +7,7 @@ import TourPackage from "@/components/tour-package"
 import TestimonialCard from "@/components/testimonial-card"
 import { query } from "@/database/connection"
 import Link from "next/link"
+import TestimonialSlider from "@/components/testimonial-slider"
 export default async function HomePage() {
   // Fetch featured destinations
   const destinations = await query(`
@@ -24,12 +25,11 @@ export default async function HomePage() {
     LIMIT 3
   `)
 
-  // Fetch featured testimonials
+  // Fetch all testimonials
   const testimonials = await query(`
     SELECT id, name, location, image, rating, testimonial
     FROM testimonials
-    WHERE is_featured = TRUE
-    LIMIT 3
+    ORDER BY id DESC
   `)
 
   return (
@@ -209,20 +209,10 @@ export default async function HomePage() {
               Hear from travelers who have experienced Vietnam with us
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial: any) => (
-              <TestimonialCard
-                key={testimonial.id}
-                name={testimonial.name}
-                location={testimonial.location}
-                image={testimonial.image || "/placeholder.svg?height=100&width=100"}
-                rating={testimonial.rating}
-                testimonial={testimonial.testimonial}
-              />
-            ))}
-          </div>
+          <TestimonialSlider testimonials={testimonials} />
         </div>
       </section>
+
 
       {/* Newsletter */}
       <section className="py-16 px-4 bg-primary text-white">
