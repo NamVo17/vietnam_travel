@@ -32,13 +32,13 @@ export default async function DestinationsPage() {
               href={`/destinations/${destination.slug}`}
               className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
             >
-              <div className="relative h-60">
-                <img
-                  src={destination.image || "/placeholder.svg?height=400&width=600"}
-                  alt={destination.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <div className="relative h-60 overflow-hidden group rounded-xl">
+  <img
+    src={destination.image || "/placeholder.svg"}
+    alt={destination.name}
+    className="w-full h-full object-fill transition-transform duration-700 group-hover:scale-110"
+  />
+</div>
               <div className="p-5">
                 <h3 className="text-xl font-bold mb-2">{destination.name}</h3>
                 <p className="text-muted-foreground mb-4">{destination.description}</p>

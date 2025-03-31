@@ -25,8 +25,12 @@ export default function DestinationCard({ image, name, description, rating, revi
   return (
     <Link href={`/destinations/${slug}`}>
       <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-        <div className="relative h-60">
-          <img src={image || "/placeholder.svg"} alt={name} className="w-full h-full object-cover" />
+        <div className="relative h-60 overflow-hidden group rounded-xl">
+          <img
+            src={image || "/placeholder.svg"}
+            alt={name}
+            className="w-full h-full object-fill transition-transform duration-700 group-hover:scale-110"
+          />
         </div>
         <div className="p-5">
           <h3 className="text-xl font-bold mb-2">{name}</h3>

@@ -27,7 +27,7 @@ export default function TourPackage({ image, title, duration, price, description
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-md">
       <div className="relative h-60">
-        <img src={image || "/placeholder.svg"} alt={title} className="w-full h-full object-cover" />
+        <img src={image || "/placeholder.svg"} alt={title} className="w-full h-full object-fill" />
         {isClient && (
           <div className="absolute top-4 right-4 bg-white py-1 px-3 rounded-full font-medium text-sm">${price}</div>
         )}

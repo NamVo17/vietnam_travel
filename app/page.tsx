@@ -168,80 +168,75 @@ export default async function HomePage() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div
-              className="bg-white p-6 rounded-xl shadow-sm text-center relative overflow-hidden"
-              style={{
-                backgroundImage: "url('/wcu_bg1.jpg')", // Thêm hình nền
-                backgroundSize: "100% 100%",
-              }}
-            >
-              <div className="bg-black/60 absolute inset-0 rounded-xl"></div> {/* Lớp phủ */}
-              <div className="relative z-10">
+            {/* Card 1 */}
+            <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow hover:scale-105 transform duration-700">
+              <Image
+                src="/wcu_bg1.jpg"
+                alt="Customized Itineraries"
+                fill
+                className="object-fill"
+              />
+              <div className="absolute inset-0 bg-black/60"></div> {/* Lớp phủ */}
+              <div className="relative z-10 text-center text-white p-6">
                 <div className="bg-white/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Plane className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-white">Customized Itineraries</h3>
-                <p className="text-white">
-                  Tailor-made travel plans to suit your preferences and interests
-                </p>
+                <h3 className="font-bold text-xl mb-2">Customized Itineraries</h3>
+                <p>Tailor-made travel plans to suit your preferences and interests</p>
               </div>
             </div>
 
-            <div
-              className="bg-white p-6 rounded-xl shadow-sm text-center relative overflow-hidden"
-              style={{
-                backgroundImage: "url('/wcu_bg2.jpg')", // Thêm hình nền
-                backgroundSize: "100% 100%",
-              }}
-            >
-              <div className="bg-black/60 absolute inset-0 rounded-xl"></div> {/* Lớp phủ */}
-              <div className="relative z-10">
+            {/* Card 2 */}
+            <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow hover:scale-105 transform duration-700">
+              <Image
+                src="/wcu_bg2.jpg"
+                alt="Quality Accommodations"
+                fill
+                className="object-fill"
+              />
+              <div className="absolute inset-0 bg-black/60"></div> {/* Lớp phủ */}
+              <div className="relative z-10 text-center text-white p-6">
                 <div className="bg-white/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Hotel className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-white">Quality Accommodations</h3>
-                <p className="text-white">
-                  Carefully selected hotels for comfort and authentic experiences
-                </p>
+                <h3 className="font-bold text-xl mb-2">Quality Accommodations</h3>
+                <p>Carefully selected hotels for comfort and authentic experiences</p>
               </div>
             </div>
 
-            <div
-              className="bg-white p-6 rounded-xl shadow-sm text-center relative overflow-hidden"
-              style={{
-                backgroundImage: "url('/wcu_bg3.jpg')", // Thêm hình nền
-                backgroundSize: "100% 100%",
-              }}
-            >
-              <div className="bg-black/60 absolute inset-0 rounded-xl"></div> {/* Lớp phủ */}
-              <div className="relative z-10">
+            {/* Card 3 */}
+            <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow hover:scale-105 transform duration-700">
+              <Image
+                src="/wcu_bg3.jpg"
+                alt="Culinary Experiences"
+                fill
+                className="object-fill"
+              />
+              <div className="absolute inset-0 bg-black/60"></div> {/* Lớp phủ */}
+              <div className="relative z-10 text-center text-white p-6">
                 <div className="bg-white/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Utensils className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-white">Culinary Experiences</h3>
-                <p className="text-white">
-                  Authentic food experiences showcasing Vietnam's rich cuisine
-                </p>
+                <h3 className="font-bold text-xl mb-2">Culinary Experiences</h3>
+                <p>Authentic food experiences showcasing Vietnam's rich cuisine</p>
               </div>
             </div>
 
-            <div
-              className="bg-white p-6 rounded-xl shadow-sm text-center relative overflow-hidden"
-              style={{
-                backgroundImage: "url('/wcu_bg4.jpg')", // Thêm hình nền
-                backgroundSize: "100% 100%",
-                backgroundRepeat: "no-repeat",
-              }}
-            >
-              <div className="bg-black/60 absolute inset-0 rounded-xl"></div> {/* Lớp phủ */}
-              <div className="relative z-10">
+            {/* Card 4 */}
+            <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow hover:scale-105 transform duration-700">
+              <Image
+                src="/wcu_bg4.jpg"
+                alt="Local Insights"
+                fill
+                className="object-fill"
+              />
+              <div className="absolute inset-0 bg-black/60"></div> {/* Lớp phủ */}
+              <div className="relative z-10 text-center text-white p-6">
                 <div className="bg-white/50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Camera className="h-8 w-8 text-black" />
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-white">Local Insights</h3>
-                <p className="text-white">
-                  Expert local guides who share authentic cultural experiences
-                </p>
+                <h3 className="font-bold text-xl mb-2">Local Insights</h3>
+                <p>Expert local guides who share authentic cultural experiences</p>
               </div>
             </div>
           </div>
