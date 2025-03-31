@@ -256,7 +256,20 @@ export default async function HomePage() {
         </div>
       </section>
 
-
+      {/* Video Section */}
+      <section className="relative flex flex-col items-center justify-center pb-16 mr-4 ml-4">
+        <h2 className="text-3xl font-light italic mb-4 text-center font-playfair">Video Travel Viet Nam</h2>
+        <div className="relative w-full max-w-4xl aspect-video">
+          <iframe
+            className="w-full h-full rounded-lg"
+            src="https://www.youtube.com/embed/04Kf_0kppPM?autoplay=1&mute=1&loop=1&playlist=04Kf_0kppPM"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
       {/* Newsletter */}
       <section className="py-16 px-4 bg-primary text-white">
         <div className="container mx-auto">
