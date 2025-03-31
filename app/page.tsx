@@ -94,7 +94,55 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+      {/* Explore Section */}
+      <section className="relative py-16 bg-white">
+        <div className="container mx-auto max-w-[1200px] flex items-center justify-between">
+          {/* Hình ảnh */}
+          <div className="flex gap-4 w-full">
+            {/* Cột 1 */}
+            <div className="w-1/4 h-96 overflow-hidden rounded-lg shadow-lg ">
+              <img
+                src="/cot1.jpg"
+                alt="Mountain"
+                className="w-full h-full object-cover drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] "
+              />
+            </div>
+            {/* Cột 2 */}
+            <div className="w-1/4 h-96 mt-10 overflow-hidden rounded-lg shadow-lg ">
+              <img
+                src="/cot2.jpg"
+                alt="Boat"
+                className="w-full h-full object-cover "
+              />
+            </div>
+            {/* Cột 3 */}
+            <div className="w-1/4 h-96 overflow-hidden rounded-lg shadow-lg">
+              <img
+                src="/cot3.jpg"
+                alt="Adventure"
+                className="w-full h-full object-cover "
+              />
+            </div>
+            {/* Cột 4 */}
+            <div className="w-1/4 h-96 mt-10 overflow-hidden rounded-lg shadow-lg ">
+              <img
+                src="/cot4.jpg"
+                alt="Mountains"
+                className="w-full h-full object-cover "
+              />
+            </div>
+          </div>
 
+          {/* Nội dung */}
+          <div className="ml-8"> {/* Thay đổi từ ml-8 thành ml-5 */}
+            <h1 className="text-6xl font-bold italic text-primary leading-none">VIET NAM</h1>
+            <p className="text-2xl text-muted-foreground italic mt-2 tracking-wide">in the eyes of the world</p>
+            <p className="text-muted-foreground max-w-md mt-4">
+            A country that still has many wild natural beauties, friendly and hospitable people, diverse cuisine, and diverse national identities.
+            </p>
+          </div>
+        </div>
+      </section>
       {/* Popular Destinations */}
       <section className="py-16 px-4 bg-slate-50">
         <div className="container mx-auto">
@@ -125,7 +173,52 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+      {/* Travel Section */}
+      <section className="relative py-16 bg-white">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {/* Hình ảnh lớn */}
+            <div className="relative col-span-2 h-[300px] overflow-hidden rounded-lg shadow-lg">
+              <img
+                src="/tour1.jpg" // Thay bằng đường dẫn hình ảnh lớn
+                alt="Travel"
+                className="w-full h-full object-fill"
+              />
+              {/* Tiêu đề */}
+              <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-start p-8">
+                <h1 className="text-4xl md:text-6xl font-bold text-white ">Diversity</h1>
+                <p className="text-lg md:text-xl text-white mt-2">in cuisine, as well as cultural traditions create a country full of color.</p>
+              </div>
+            </div>
 
+            {/* Hình ảnh nhỏ */}
+            <div className="relative h-[300px] overflow-hidden rounded-lg shadow-lg">
+              <div className="relative h-[148px] overflow-hidden rounded-lg shadow-lg mb-2">
+                <img
+                  src="/tour2.jpg" // Thay bằng đường dẫn hình ảnh nhỏ 1
+                  alt="Destination 1"
+                  className="w-full h-full object-fill"
+                />
+              </div>
+              <div className="relative h-[148px] overflow-hidden rounded-lg shadow-lg">
+                <img
+                  src="/tour3.jpg" // Thay bằng đường dẫn hình ảnh nhỏ 2
+                  alt="Destination 2"
+                  className="w-full h-full object-fill"
+                />
+              </div>
+            </div>
+
+            <div className="relative h-[300px] overflow-hidden rounded-lg shadow-lg">
+              <img
+                src="/tour4.jpg" // Thay bằng đường dẫn hình ảnh nhỏ 3
+                alt="Destination 3"
+                className="w-full h-full object-fill"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Tour Packages */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
