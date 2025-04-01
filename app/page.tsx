@@ -1,3 +1,4 @@
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -8,6 +9,7 @@ import TestimonialCard from "@/components/testimonial-card"
 import { query } from "@/database/connection"
 import Link from "next/link"
 import TestimonialSlider from "@/components/testimonial-slider"
+import ScrollAnimation from "@/components/scroll-animation"
 export default async function HomePage() {
   // Fetch featured destinations
   const destinations = await query(`
@@ -46,17 +48,25 @@ export default async function HomePage() {
           />
         </div>
         <div className="container relative z-10 mx-auto px-4 text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Discover the Beauty of Vietnam</h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl">
-            Experience breathtaking landscapes, rich culture, and unforgettable adventures
-          </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
-            Explore Destinations <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <ScrollAnimation variant="fadeUp" >
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">Discover the Beauty of Vietnam</h1>
+          </ScrollAnimation>
+          <ScrollAnimation variant="fadeUp" delay={300}>
+            <p className="text-xl md:text-2xl mb-8 max-w-2xl">
+              Experience breathtaking landscapes, rich culture, and unforgettable adventures
+            </p>
+          </ScrollAnimation>
+          <ScrollAnimation variant="fadeUp" delay={500}>
+            <Button size="lg" className="bg-primary hover:bg-primary/90">
+              Explore Destinations <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </ScrollAnimation>
+
         </div>
       </section>
 
       {/* Search Section */}
+      <ScrollAnimation variant="fadeLeft"  delay={700} >
       <section className="bg-white py-8 px-4">
         <div className="container mx-auto">
           <div className="bg-white rounded-xl shadow-lg p-6 -mt-20 relative z-20">
@@ -94,88 +104,96 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+      </ScrollAnimation>
       {/* Explore Section */}
-      <section className="relative py-16 bg-white">
-        <div className="container mx-auto max-w-[1200px] flex items-center justify-between">
-          {/* Hình ảnh */}
-          <div className="flex gap-4 w-full">
-            {/* Cột 1 */}
-            <div className="w-1/4 h-96 overflow-hidden rounded-lg shadow-lg ">
-              <img
-                src="/cot1.jpg"
-                alt="Mountain"
-                className="w-full h-full object-cover drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] "
-              />
-            </div>
-            {/* Cột 2 */}
-            <div className="w-1/4 h-96 mt-10 overflow-hidden rounded-lg shadow-lg ">
-              <img
-                src="/cot2.jpg"
-                alt="Boat"
-                className="w-full h-full object-cover "
-              />
-            </div>
-            {/* Cột 3 */}
-            <div className="w-1/4 h-96 overflow-hidden rounded-lg shadow-lg">
-              <img
-                src="/cot3.jpg"
-                alt="Adventure"
-                className="w-full h-full object-cover "
-              />
-            </div>
-            {/* Cột 4 */}
-            <div className="w-1/4 h-96 mt-10 overflow-hidden rounded-lg shadow-lg ">
-              <img
-                src="/cot4.jpg"
-                alt="Mountains"
-                className="w-full h-full object-cover "
-              />
-            </div>
-          </div>
+      <section className="relative py-16 bg-white overflow-hidden">
+        <div className="container mx-auto max-w-[1200px] flex flex-wrap md:flex-nowrap items-center justify-between">
+          <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
+            {/* Images container */}
+            <div className="w-full md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
+              <ScrollAnimation variant="fadeLeft" delay={900}>
+                <div className="col-span-2 h-96 overflow-hidden rounded-lg shadow-lg">
+                  <img src="/cot1.jpg" alt="Mountain" className="w-full h-full object-cover" />
+                </div>
+              </ScrollAnimation>
 
-          {/* Nội dung */}
-          <div className="ml-8"> {/* Thay đổi từ ml-8 thành ml-5 */}
-            <h1 className="text-6xl font-bold italic text-primary leading-none">VIET NAM</h1>
-            <p className="text-2xl text-muted-foreground italic mt-2 tracking-wide">in the eyes of the world</p>
-            <p className="text-muted-foreground max-w-md mt-4">
-            A country that still has many wild natural beauties, friendly and hospitable people, diverse cuisine, and diverse national identities.
-            </p>
+              <ScrollAnimation variant="fadeLeft" delay={700}>
+                <div className="h-96 mt-10 overflow-hidden rounded-lg shadow-lg">
+                  <img src="/cot2.jpg" alt="Boat" className="w-full h-full object-cover" />
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation variant="fadeLeft" delay={500}>
+                <div className="h-96 overflow-hidden rounded-lg shadow-lg">
+                  <img src="/cot3.jpg" alt="Adventure" className="w-full h-full object-cover" />
+                </div>
+              </ScrollAnimation>
+
+              <ScrollAnimation variant="fadeLeft" delay={300}>
+                <div className="h-96  mt-10 overflow-hidden rounded-lg shadow-lg">
+                  <img src="/cot4.jpg" alt="Mountains" className="w-full h-full object-cover" />
+                </div>
+              </ScrollAnimation>
+            </div>
+
+            {/* Content */}
+
+              <div className="w-full md:w-1/3">
+              <ScrollAnimation variant="fadeRight" delay={100}>
+                <h1 className="text-4xl md:text-6xl font-bold italic text-primary leading-none">VIET NAM</h1>
+                <p className="text-2xl text-muted-foreground italic mt-2 tracking-wide">in the eyes of the world</p>
+                <p className="text-muted-foreground mt-4">
+                  A country that still has many wild natural beauties, friendly and hospitable people, diverse cuisine,
+                  and diverse national identities.
+                </p>
+                </ScrollAnimation>
+              </div>
+
           </div>
         </div>
       </section>
+      
       {/* Popular Destinations */}
-      <section className="py-16 px-4 bg-slate-50">
+      <section className="py-16 px-4 bg-slate-50 overflow-hidden">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Popular Destinations</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Explore Vietnam's most beloved destinations, from bustling cities to serene landscapes
-            </p>
-          </div>
+          <ScrollAnimation variant="fadeUp">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Popular Destinations</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Explore Vietnam's most beloved destinations, from bustling cities to serene landscapes
+              </p>
+            </div>
+          </ScrollAnimation>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((destination: any) => (
-              <DestinationCard
-                key={destination.id}
-                image={destination.image || "/placeholder.svg?height=400&width=600"}
-                name={destination.name}
-                description={destination.description}
-                rating={destination.rating}
-                reviewCount={destination.review_count}
-              />
+            {destinations.map((destination: any, index: number) => (
+              <ScrollAnimation key={destination.id} variant="fadeUp" delay={index * 100}>
+                <DestinationCard
+                  image={destination.image || "/placeholder.svg?height=400&width=600"}
+                  name={destination.name}
+                  description={destination.description}
+                  rating={destination.rating}
+                  reviewCount={destination.review_count}
+                />
+              </ScrollAnimation>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link href={`/destinations`}>
-              <Button variant="outline" size="lg">
-                View All Destinations
-              </Button>
-            </Link>
-          </div>
+
+          <ScrollAnimation variant="fadeUp" delay={300}>
+            <div className="text-center mt-12">
+              <Link href={`/destinations`}>
+                <Button variant="outline" size="lg">
+                  View All Destinations
+                </Button>
+              </Link>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
       {/* Travel Section */}
       <section className="relative py-16 bg-white">
         <div className="container mx-auto">
+        <ScrollAnimation variant="fadeUp" delay={500}>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Hình ảnh lớn */}
             <div className="relative col-span-2 h-[300px] overflow-hidden rounded-lg shadow-lg">
@@ -190,7 +208,6 @@ export default async function HomePage() {
                 <p className="text-lg md:text-xl text-white mt-2">in cuisine, as well as cultural traditions create a country full of color.</p>
               </div>
             </div>
-
             {/* Hình ảnh nhỏ */}
             <div className="relative h-[300px] overflow-hidden rounded-lg shadow-lg">
               <div className="relative h-[148px] overflow-hidden rounded-lg shadow-lg mb-2">
@@ -217,49 +234,61 @@ export default async function HomePage() {
               />
             </div>
           </div>
+          </ScrollAnimation>
         </div>
       </section>
       {/* Tour Packages */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 overflow-hidden">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Popular Tour Packages</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Carefully curated tours to give you the best Vietnam experience
-            </p>
-          </div>
+          <ScrollAnimation variant="fadeUp">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Popular Tour Packages</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Carefully curated tours to give you the best Vietnam experience
+              </p>
+            </div>
+          </ScrollAnimation>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tours.map((tour: any) => (
-              <TourPackage
-                key={tour.id}
-                image={tour.image || "/placeholder.svg?height=400&width=600"}
-                title={tour.title}
-                duration={tour.duration}
-                price={tour.price}
-                description={tour.description}
-                rating={tour.rating}
-              />
+            {tours.map((tour: any, index: number) => (
+              <ScrollAnimation key={tour.id} variant="fadeUp" delay={index * 100}>
+                <TourPackage
+                  image={tour.image || "/placeholder.svg?height=400&width=600"}
+                  title={tour.title}
+                  duration={tour.duration}
+                  price={tour.price}
+                  description={tour.description}
+                  rating={tour.rating}
+                />
+              </ScrollAnimation>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link href={`/tours`}>
-              <Button variant="outline" size="lg">
-                View All Packages
-              </Button>
-            </Link>
-          </div>
+
+          <ScrollAnimation variant="fadeUp" delay={300}>
+            <div className="text-center mt-12">
+              <Link href={`/tours`}>
+                <Button variant="outline" size="lg">
+                  View All Packages
+                </Button>
+              </Link>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
+
 
       {/* Why Choose Us */}
       <section className="py-16 px-4 bg-slate-50">
         <div className="container mx-auto">
+        <ScrollAnimation variant="fadeUp">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Why Choose Us</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               We're dedicated to making your Vietnam journey unforgettable
             </p>
           </div>
+          </ScrollAnimation>
+          <ScrollAnimation variant="fadeUp" delay={500}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Card 1 */}
             <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow hover:scale-105 transform duration-700">
@@ -333,6 +362,7 @@ export default async function HomePage() {
               </div>
             </div>
           </div>
+          </ScrollAnimation>
         </div>
       </section>
 

@@ -15,7 +15,25 @@ export default async function ToursPage() {
 
   return (
     <div className="pt-16">
-      <div className="bg-slate-50 py-12 md:py-24">
+      <div className="relative py-12 md:py-24">
+        <div className="absolute inset-0">
+          <img
+            src="/tour.jpg" // Thay bằng đường dẫn hình ảnh của bạn
+            alt="Vietnam Destinations"
+            className="w-full h-full object-fill brightness-75"
+          />
+          <div className="absolute inset-0 bg-black/30"></div> {/* Lớp phủ tối */}
+        </div>
+        <div className="relative container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center text-white">
+            <h1 className="text-4xl font-bold mb-4">Vietnam Tour Packages</h1>
+            <p className="mb-8">
+            Carefully curated tours to give you the best Vietnam experience
+            </p>
+          </div>
+        </div>
+      </div>
+      {/* <div className="bg-slate-50 py-12 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl font-bold mb-4">Vietnam Tour Packages</h1>
@@ -24,7 +42,7 @@ export default async function ToursPage() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
